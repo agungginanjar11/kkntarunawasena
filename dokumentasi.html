@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dokumentasi - KKN Taru Nawasena</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              hijautua: "#D2691E", // Ini adalah warna Cokelat
+              krem: "#f3e9d2",
+              birulogo: "#2a5c6a",
+              emas: "#bfa14a",
+              'krem-text': '#4a4a4a',
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* --- Animasi Scroll Baru --- */
+      /* State awal kartu galeri (semi-transparan dan sedikit diperkecil) */
+      .gallery-card {
+        opacity: 0.2;
+        transform: scale(0.95);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        will-change: opacity, transform;
+      }
+      
+      /* State saat kartu galeri terlihat di viewport */
+      .gallery-card.is-visible {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      /* --- Efek Hover untuk Galeri --- */
+      /* Efek hover akan tetap berfungsi saat kartu terlihat */
+      .gallery-card.is-visible:hover {
+        transform: translateY(-8px) scale(1.02); /* Sedikit mengangkat dan membesar saat di-hover */
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 font-sans">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 bg-hijautua text-white shadow-lg z-50">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center space-x-3">
+            <img
+              src="assets/logo1.jpg"
+              alt="Logo KKN Taru Nawasena"
+              class="h-10 w-10 rounded-full border-2 border-emas bg-krem"
+            />
+            <a href="index.html" class="text-xl font-bold text-white">Taru Nawasena</a>
+          </div>
+          <div class="hidden md:flex space-x-8">
+            <a href="index.html" class="hover:text-emas transition duration-300">Beranda</a>
+            <a href="tentang.html" class="hover:text-emas transition duration-300">Tentang Kami</a>
+            <a href="program.html" class="hover:text-emas transition duration-300">Program Kerja</a>
+            <a href="dokumentasi.html" class="text-emas font-semibold transition duration-300">Dokumentasi</a>
+            <a href="tim.html" class="hover:text-emas transition duration-300">Tim</a>
+            <a href="kontak.html" class="hover:text-emas transition duration-300">Kontak</a>
+          </div>
+          <div class="md:hidden">
+            <button id="mobile-menu-button" class="text-white hover:text-emas focus:outline-none">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="md:hidden hidden flex-col space-y-2 mt-2 bg-hijautua rounded-lg shadow-lg p-4">
+          <a href="index.html" class="block py-2 px-4 text-sm hover:text-emas transition duration-300">Beranda</a>
+          <a href="tentang.html" class="block py-2 px-4 text-sm hover:text-emas transition duration-300">Tentang Kami</a>
+          <a href="program.html" class="block py-2 px-4 text-sm hover:text-emas transition duration-300">Program Kerja</a>
+          <a href="dokumentasi.html" class="block py-2 px-4 text-sm text-emas font-semibold transition duration-300">Dokumentasi</a>
+          <a href="tim.html" class="block py-2 px-4 text-sm hover:text-emas transition duration-300">Tim</a>
+          <a href="kontak.html" class="block py-2 px-4 text-sm hover:text-emas transition duration-300">Kontak</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Bagian Header -->
+    <div class="bg-hijautua text-white py-16">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Galeri Dokumentasi</h1>
+        <p class="text-xl max-w-3xl mx-auto text-krem">
+          Momen-momen berharga selama pengabdian kami di Desa Haurwangi,
+          terangkum dalam potret kegiatan yang penuh makna.
+        </p>
+      </div>
+    </div>
+
+    <!-- Bagian Galeri -->
+    <div class="container mx-auto px-4 py-16">
+      <!-- Tombol Filter telah dihapus sesuai permintaan -->
+
+      <!-- Grid Galeri -->
+      <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Item galeri akan dianimasikan oleh JS saat di-scroll. -->
+        
+        <!-- Item 1 -->
+        <div class="gallery-card" data-category="pendidikan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/bersama/bersama1.jpg" alt="Kegiatan Bimbingan Belajar" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Pembukaan</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="gallery-card" data-category="pendidikan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/bersama/bersama2.jpg" alt="bersama" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Bersama</h3>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Item 3 -->
+        <div class="gallery-card" data-category="">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/bersama/bersama3.jpg" alt="Pelatihan UMKM" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Bersama</h3>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Item 4 -->
+        <div class="gallery-card" data-category="pendidikan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/bersama/bersama4.jpg" alt="Mengajar Mengaji" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Bersama</h3>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Item 5 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/bersama/bersama5.jpg" alt="Bank Sampah" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Bersama</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="gallery-card" data-category="ekonomi">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/bersama/bersama6.jpg" alt="Ekonomi Kreatif" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Bersama</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 7 -->
+        <div class="gallery-card" data-category="kesehatan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/bersama/bersama7.jpg" alt="Cek Kesehatan" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Bersama</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 8 -->
+        <div class="gallery-card" data-category="pendidikan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/bersama/bersama8.jpg" alt="Produk Lokal" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Bersama</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 9 -->
+        <div class="gallery-card" data-category="ekonomi">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/bersama/bersama9.jpg"Penyuluhan Gizi" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Bersama</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 10 -->
+        <div class="gallery-card" data-category="kesehatan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/bersama/bersama10.jpg" alt="Posyandu Remaja" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Bersama</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 11 -->
+        <div class="gallery-card" data-category="pendidikan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/jagung/jagung1.jpg" alt="sd" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Panen Jagung</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 12 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/jagung/jagung2.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Panen Jagung
+          </div>
+        </div>
+      </div>
+
+
+          <!-- Item 13 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/jagung/jagung3.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Panen Jagung</h3>
+            </div>
+          </div>
+        </div>
+
+
+            
+          <!-- Item 14 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/jagung/jagung4.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Panen Jagung</h3>
+            </div>
+          </div>
+        </div>
+
+
+        
+        <!-- Item 15 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/jagung/jagung5.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Panen Jagung</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 16 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/jagung/jagung6.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Panen Jagung</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 17 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/jagung/jagung7.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Panen Jagung</h3>
+            </div>
+          </div>
+        </div>
+
+  <!-- Item 18 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/jagung/jagung8.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Panen Jagung</h3>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Item 19 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/koprasimereh/koprasimerah1.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Koperasi Merah Putih</h3>
+            </div>
+          </div>
+        </div>  
+
+
+
+          <!-- Item 20 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/koprasimereh/koprasimerah2.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Koperasi Merah Putih</h3>
+            </div>
+          </div>
+        </div>
+
+
+          <!-- Item 21 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/koprasimereh/koprasimerah3.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Koperasi Merah Putih</h3>
+            </div>
+          </div>
+        </div>
+
+
+          <!-- Item 22 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/ldll/ldll1.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Posyandu Remaja</h3>
+            </div>
+          </div>
+        </div>
+
+
+          <!-- Item 23 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/ldll/ldll2.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Posyandu Remaja</h3>
+            </div>
+          </div>
+        </div>
+
+
+          <!-- Item 24 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/ldll/ldll3.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Posyandu Remaja</h3>
+            </div>
+          </div>
+        </div>
+
+
+          <!-- Item 25 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/ldll/ldll4.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Posyandu Remaja</h3>
+            </div>
+          </div>
+        </div>
+
+
+
+          <!-- Item 26 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/ldll/ldll5.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Posyandu Remaja</h3>
+            </div>
+          </div>
+        </div>
+
+
+          <!-- Item 27 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/ldll/ldll6.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Posyandu Remaja</h3>
+            </div>
+          </div>
+        </div>
+
+
+          <!-- Item 28 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/ldll/ldll7.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Posyandu Remaja</h3>
+            </div>
+          </div>
+        </div>
+
+
+
+          <!-- Item 29 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/ldll/ldll8.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Posyandu Remaja</h3>
+            </div>
+          </div>
+        </div>
+
+
+
+          <!-- Item 30 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/ngaji/ngaji1.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Mengajar Mengaji</h3>
+            </div>
+          </div>
+        </div>
+
+
+
+          <!-- Item 31 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/ngaji/ngaji2.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Mengajar Mengaji</h3>
+            </div>
+          </div>
+        </div>
+
+
+          <!-- Item 32 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/ngaji/ngaji3.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Mengajar Mengaji</h3>
+            </div>
+          </div>
+        </div>
+
+
+
+          <!-- Item 33 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/ngaji/ngaji4.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Mengajar Mengaji</h3>
+            </div>
+          </div>
+        </div>
+
+
+          <!-- Item 34 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/ngaji/ngaji5.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Mengajar Mengaji</h3>
+            </div>
+          </div>
+        </div>
+
+
+
+          <!-- Item 35 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/ngawas/ngawas1.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Mengajar Sekolah</h3>
+            </div>
+          </div>
+        </div>
+
+
+
+          <!-- Item 36 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/ngawas/ngawas2.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Mengajar Sekolah</h3>
+            </div>
+          </div>
+        </div>
+
+
+
+          <!-- Item 37 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/sdncipetir/sdnsipetir1.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Gelar Karya & Perpisahan SD</h3>
+            </div>
+          </div>
+        </div>
+
+
+
+          <!-- Item 38 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/sdncipetir/sdnsipetir2.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Gelar Karya & Perpisahan SD</h3>
+            </div>
+          </div>
+        </div>
+
+
+          <!-- Item 39 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/sdncipetir/sdnsipetir3.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Gelar Karya & Perpisahan SD</h3>
+            </div>
+          </div>
+        </div>
+
+
+
+          <!-- Item 40 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/sdncipetir/sdnsipetir4.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Gelar Karya & Perpisahan SD</h3>
+            </div>
+          </div>
+        </div>
+
+
+
+          <!-- Item 41 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/sdncipetir/sdnsipetir5.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Gelar Karya & Perpisahan SD</h3>
+            </div>
+          </div>
+        </div>
+
+
+
+          <!-- Item 42 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/posyandu/posyandu1.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Posyandu</h3>
+            </div>
+          </div>
+        </div>
+          <!-- Item 43 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/posyandu/posyandu2.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Posyandu</h3>
+            </div>
+          </div>
+        </div>
+          <!-- Item 44 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/posyandu/posyandu3.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Posyandu</h3>
+            </div>
+          </div>
+        </div>
+          <!-- Item 45 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/posyandu/posyandu4.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Posyandu</h3>
+            </div>
+          </div>
+        </div>
+          <!-- Item 46 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/porkland/porkland1.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Berdiskusi Wisata pokland</h3>
+            </div>
+          </div>
+        </div>
+          <!-- Item 47 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/porkland/porkland2.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Berdiskusi Wisata pokland</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 48-->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/obor&plang/obor3.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Pawai Obor</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 49 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/obor&plang/plang2.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Membuat Petunjuk Arah </h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 50 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/obor&plang/plang1.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Agro Wisata Dikelola KKN Taru Nawasena</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 51 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/tanam/tanam1.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Penanaman Pohon Jeruk <br> AGRO WISATA</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 52 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/tanam/tanam2.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Penanaman Pohon Jeruk <br> AGRO WISATA</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 53 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/tanam/tanam3.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Penanaman Pohon Jeruk <br> AGRO WISATA</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 54 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/tanam/tanam5.jpg" alt="hasan" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Muhammad Hasan</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 55 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/tanam/tanam6.jpg" alt="dede" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Dede Azki</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 56 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/tanam/tanam7.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Agung Ginanjar</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 57 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/tanam/tanam8.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Muhamad Zaky Alghifari</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 58 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/tanam/tanam9.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Ai Nuraisyah</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 59 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/tanam/tanam10.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Novitasari</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 60 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/tanam/tanam11.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Raihan Gentha Tsany</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 61-->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/tanam/tanam12.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Siti Wulandari</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 62 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/tanam/tanam13.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Silvi Nur Anggraeni</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 63 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/tanam/tanam14.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Astria Rachmadiani</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 64 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/tanam/tanam15.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Lisa Pebriyanti</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 65 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/tanam/tanam16.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Risma Mulyani</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 66 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/tanam/tanam17.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Julia Wiranti Hasan</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 67 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/tanam/tanam18.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Wina Widiana</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 68 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/tanam/tanam19.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Dita Marsela</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 69 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/tanam/tanam20.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Bilky Octavian Malik</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 70 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/tanam/tanam21.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Egi Husen Maulana</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 71 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/tanam/tanam22.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Runi Nurlitasari</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 72 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/tanam/tanam23.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Anisa Pujawati</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 73 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/ekonomi/ekonomi1.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Ekonomi</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 74 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/ekonomi/ekonomi2.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Ekonomi</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 75 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/ekonomi/ekonomi3.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Ekonomi</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 76 -->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/tanam/tanam13.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Penanaman Pohonn</h3>
+            </div>
+          </div>
+        </div>
+
+          <!-- Item 77-->
+        <div class="gallery-card" data-category="lingkungan">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
+            <div class="relative pb-[75%]">
+              <img src="assets/tanam/tanam13.jpg" alt="tanam" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Error';">
+            </div>
+            <div class="p-6 flex-grow flex items-center justify-center">
+              <h3 class="font-bold text-lg text-hijautua text-center">Penanaman Pohonn</h3>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-hijautua text-white py-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h4 class="text-xl font-bold mb-4">KKN Taru Nawasena</h4>
+            <p class="text-krem">
+              Tim KKN Kelompok 3 Universitas Al Ghifari (UNFARI) tahun 2025
+              dengan nama Taru Nawasena. Bertemakan Optimalisasi Potensi Desa,
+              Kehidupan dan Berkelanjutan.
+            </p>
+          </div>
+          <div>
+            <h4 class="text-xl font-bold mb-4">Kontak</h4>
+            <p class="text-krem">Email: tarunawasena@gmail.com</p>
+          </div>
+          <div>
+            <h4 class="text-xl font-bold mb-4">Media Sosial</h4>
+            <div class="flex flex-col space-y-2">
+              <a href="https://www.instagram.com/kkn_tarunawasena03?igsh=MTh1MnY3emo0N2hxNQ%3D%3D&utm_source=qr" target="_blank" class="text-krem hover:text-emas">Instagram</a>
+              <a href="https://www.tiktok.com/@taru.nawasena?_t=ZS-8wrwue9oS6a&_r=1" target="_blank" class="text-krem hover:text-emas">TikTok</a>
+              <a href="#" target="_blank" class="text-krem hover:text-emas">GitHub</a>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-emas mt-8 pt-8 text-center">
+          <p class="text-krem">
+            &copy; 2025 KKN Taru Nawasena. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- Tombol Menu Mobile ---
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        mobileMenuButton.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+        });
+
+        // --- Logika Animasi Scroll Baru ---
+        // Menggunakan Intersection Observer untuk efisiensi performa
+        const galleryItems = document.querySelectorAll(".gallery-card");
+
+        // Opsi untuk observer
+        const observerOptions = {
+          root: null, // Menggunakan viewport sebagai root
+          rootMargin: '0px',
+          // Callback akan dijalankan saat 40% dari elemen terlihat
+          threshold: 0.4 
+        };
+
+        // Callback function yang akan dijalankan oleh observer
+        const observerCallback = (entries, observer) => {
+          entries.forEach(entry => {
+            // Jika elemen masuk ke dalam viewport
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+            } else {
+              // Jika elemen keluar dari viewport, buat transparan lagi
+              // Ini akan membuat animasi berjalan setiap kali user scroll ke atas dan ke bawah
+              entry.target.classList.remove('is-visible');
+            }
+          });
+        };
+        
+        // Membuat observer baru
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        // Mengamati setiap item galeri
+        galleryItems.forEach(item => {
+          observer.observe(item);
+        });
+      });
+    </script>
+  </body>
+</html>

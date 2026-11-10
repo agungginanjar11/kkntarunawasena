@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontak - KKN Taru Nawasena</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        hijautua: "#D2691E", // Warna Cokelat
+                        krem: "#f3e9d2",     // Warna Krem
+                        birulogo: "#2a5c6a",
+                        emas: "#bfa14a",     // Warna Emas
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        /* Animasi elemen muncul saat di-scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, transform;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Navbar -->
+    <nav class="sticky top-0 bg-hijautua text-white shadow-lg z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <img src="assets/logo1.jpg" alt="Logo KKN Taru Nawasena" class="h-10 w-10 rounded-full border-2 border-emas bg-krem" />
+                    <a href="index.html" class="text-xl font-bold text-white">Taru Nawasena</a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="hover:text-emas transition duration-300">Beranda</a>
+                    <a href="tentang.html" class="hover:text-emas transition duration-300">Tentang Kami</a>
+                    <a href="program.html" class="hover:text-emas transition duration-300">Program Kerja</a>
+                    <a href="dokumentasi.html" class="hover:text-emas transition duration-300">Dokumentasi</a>
+                    <a href="tim.html" class="hover:text-emas transition duration-300">Tim</a>
+                    <a href="kontak.html" class="text-emas font-semibold transition duration-300">Kontak</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white hover:text-emas focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Menu Mobile -->
+            <div id="mobile-menu" class="md:hidden hidden flex-col space-y-2 mt-2 bg-hijautua rounded-lg shadow-lg p-4">
+                <a href="index.html" class="block py-2 px-4 text-sm hover:text-emas transition duration-300">Beranda</a>
+                <a href="tentang.html" class="block py-2 px-4 text-sm hover:text-emas transition duration-300">Tentang Kami</a>
+                <a href="program.html" class="block py-2 px-4 text-sm hover:text-emas transition duration-300">Program Kerja</a>
+                <a href="dokumentasi.html" class="block py-2 px-4 text-sm hover:text-emas transition duration-300">Dokumentasi</a>
+                <a href="tim.html" class="block py-2 px-4 text-sm hover:text-emas transition duration-300">Tim</a>
+                <a href="kontak.html" class="block py-2 px-4 text-sm text-emas font-semibold">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="bg-hijautua text-white py-16">
+        <div class="container mx-auto px-4 text-center fade-in">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Hubungi Kami</h1>
+            <p class="text-xl max-w-3xl mx-auto text-krem">
+                Kami siap mendengarkan pertanyaan, saran, atau kolaborasi dari Anda.
+            </p>
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <main class="container mx-auto px-4 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Contact Form -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 fade-in" style="transition-delay: 200ms;">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Kirim Pesan</h2>
+                <form action="https://formspree.io/f/tarunawasena@gmail.com" method="POST">
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700 font-medium mb-2">Nama</label>
+                        <input type="text" name="name" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emas transition" required />
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                        <input type="email" name="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emas transition" required />
+                    </div>
+                    <div class="mb-4">
+                        <label for="subject" class="block text-gray-700 font-medium mb-2">Subjek</label>
+                        <input type="text" name="subject" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emas transition" required />
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-700 font-medium mb-2">Pesan</label>
+                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emas transition" required></textarea>
+                    </div>
+                    <button type="submit" class="bg-hijautua text-white font-bold px-6 py-3 rounded-lg hover:bg-emas hover:text-white transition-all duration-300 w-full">
+                        Kirim Pesan
+                    </button>
+                </form>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 fade-in" style="transition-delay: 400ms;">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Informasi Kontak</h2>
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="text-hijautua text-2xl mt-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800">Alamat</h3>
+                            <a href="https://maps.app.goo.gl/oxHMEChurp692E2i7" target="_blank" class="text-gray-600 hover:text-hijautua transition">
+                                Desa Haurwangi, Kec. Haurwangi, <br>Kabupaten Cianjur, Jawa Barat
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="text-hijautua text-2xl mt-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800">Email</h3>
+                            <p class="text-gray-600">tarunawasena@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                         <div class="text-hijautua text-2xl mt-1">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+                         </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800">Jam Operasional</h3>
+                            <p class="text-gray-600">Senin - Jumat: 08:00 - 16:00</p>
+                            <p class="text-gray-600">Sabtu - Minggu: Istirahat</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Social Media -->
+                <div class="mt-8 pt-6 border-t border-gray-200">
+                    <h3 class="font-bold text-gray-800 mb-4">Media Sosial</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/kkn_tarunawasena03?igsh=MTh1MnY3emo0N2hxNQ%3D%3D&utm_source=qr" target="_blank" class="text-gray-500 hover:text-hijautua transition duration-300">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zm0 1.62c-2.403 0-2.748.01-3.727.058-1.18.053-1.844.24-2.41.474a3.273 3.273 0 00-1.288.872 3.273 3.273 0 00-.872 1.288c-.234.566-.421 1.23-.474 2.41-.048.98-.058 1.324-.058 3.727s.01 2.748.058 3.727c.053 1.18.24 1.844.474 2.41a3.273 3.273 0 00.872 1.288 3.273 3.273 0 001.288.872c.566.234 1.23.421 2.41.474.98.048 1.324.058 3.727.058s2.748-.01 3.727-.058c1.18-.053 1.844-.24 2.41-.474a3.273 3.273 0 001.288-.872 3.273 3.273 0 00.872-1.288c.234-.566.421-1.23.474-2.41.048-.98.058-1.324.058-3.727s-.01-2.748-.058-3.727c-.053-1.18-.24-1.844-.474-2.41a3.273 3.273 0 00-.872-1.288 3.273 3.273 0 00-1.288-.872c-.566-.234-1.23-.421-2.41-.474-.98-.048-1.324-.058-3.727-.058z" clip-rule="evenodd" /><path d="M12 8.25a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5zM10.375 12a1.625 1.625 0 113.25 0 1.625 1.625 0 01-3.25 0z" /><path d="M18.806 6.155a1.125 1.125 0 100-2.25 1.125 1.125 0 000 2.25z" /></svg>
+                        </a>
+                        <a href="https://www.tiktok.com/@taru.nawasena?_t=ZS-8wrwue9oS6a&_r=1" target="_blank" class="text-gray-500 hover:text-hijautua transition duration-300">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z" /></svg>
+                        </a>
+                        <a href="#" target="_blank" class="text-gray-500 hover:text-hijautua transition duration-300">
+                           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-hijautua text-white py-8 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="text-xl font-bold mb-4">KKN Taru Nawasena</h4>
+                    <p class="text-krem">Tim KKN Kelompok 3 Universitas Al Ghifari (UNFARI) tahun 2025. Bertemakan "Optimalisasi Potensi Desa, Kehidupan, dan Berkelanjutan".</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Kontak</h4>
+                    <p class="text-krem">Email: tarunawasena@gmail.com</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Media Sosial</h4>
+                    <div class="flex flex-col space-y-2">
+                        <a href="https://www.instagram.com/kkn_tarunawasena03?igsh=MTh1MnY3emo0N2hxNQ%3D%3D&utm_source=qr" target="_blank" class="text-krem hover:text-emas transition duration-300">Instagram</a>
+                        <a href="https://www.tiktok.com/@taru.nawasena?_t=ZS-8wrwue9oS6a&_r=1" target="_blank" class="text-krem hover:text-emas transition duration-300">TikTok</a>
+                        <a href="#" target="_blank" class="text-krem hover:text-emas transition duration-300">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-emas mt-8 pt-8 text-center">
+                <p class="text-krem">&copy; 2025 KKN Taru Nawasena. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // --- Skrip untuk Menu Mobile ---
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener("click", () => {
+                if (mobileMenu) {
+                    mobileMenu.classList.toggle("hidden");
+                }
+            });
+        }
+
+        // --- Skrip untuk Efek Muncul saat Scroll ---
+        document.addEventListener("DOMContentLoaded", () => {
+            const fadeInElements = document.querySelectorAll('.fade-in');
+            if (fadeInElements.length > 0) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+                fadeInElements.forEach((element, index) => {
+                    setTimeout(() => observer.observe(element), index * 100);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

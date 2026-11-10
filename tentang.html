@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tentang Kami - KKN Taru Nawasena</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <script>
+        // Konfigurasi warna kustom untuk Tailwind CSS
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        hijautua: "#D2691E", // Warna Cokelat
+                        krem: "#f3e9d2",     // Warna Krem (disesuaikan agar konsisten)
+                        birulogo: "#2a5c6a",
+                        emas: "#bfa14a",     // Warna Emas (disesuaikan agar konsisten)
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        /* Efek muncul (fade in) untuk elemen saat di-scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, transform;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Gaya untuk kotak konten dengan bayangan dan efek hover */
+        .content-box {
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .content-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        /* Transisi untuk gambar galeri */
+        #gallery-image {
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        /* Gaya untuk wadah galeri agar transisi ukuran lebih mulus */
+        #gallery-container {
+            transition: max-width 0.5s ease-in-out;
+        }
+
+        /* Gaya untuk tombol kontrol ukuran yang aktif */
+        .size-control-btn.active {
+            background-color: #D2691E; /* hijautua */
+            color: #FFFFFF;
+            border-color: #D2691E;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Navbar -->
+    <nav class="sticky top-0 bg-hijautua text-white shadow-lg z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <img src="assets/logo1.jpg" alt="Logo KKN Taru Nawasena" class="h-10 w-10 rounded-full border-2 border-emas bg-krem" />
+                    <a href="index.html" class="text-xl font-bold text-white">Taru Nawasena</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="hover:text-emas transition duration-300">Beranda</a>
+                    <a href="tentang.html" class="text-emas font-semibold transition duration-300">Tentang Kami</a>
+                    <a href="program.html" class="hover:text-emas transition duration-300">Program Kerja</a>
+                    <a href="dokumentasi.html" class="hover:text-emas transition duration-300">Dokumentasi</a>
+                    <a href="tim.html" class="hover:text-emas transition duration-300">Tim</a>
+                    <a href="kontak.html" class="hover:text-emas transition duration-300">Kontak</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white hover:text-emas focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Menu Mobile -->
+            <div id="mobile-menu" class="md:hidden hidden flex-col space-y-2 mt-2 bg-hijautua rounded-lg shadow-lg p-4">
+                <a href="index.html" class="block py-2 px-4 text-sm hover:text-emas transition duration-300">Beranda</a>
+                <a href="tentang.html" class="block py-2 px-4 text-sm text-emas font-semibold">Tentang Kami</a>
+                <a href="program.html" class="block py-2 px-4 text-sm hover:text-emas transition duration-300">Program Kerja</a>
+                <a href="dokumentasi.html" class="block py-2 px-4 text-sm hover:text-emas transition duration-300">Dokumentasi</a>
+                <a href="tim.html" class="block py-2 px-4 text-sm hover:text-emas transition duration-300">Tim</a>
+                <a href="kontak.html" class="block py-2 px-4 text-sm hover:text-emas transition duration-300">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="bg-hijautua text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Tentang Kami</h1>
+            <p class="text-lg text-krem max-w-3xl mx-auto">Mengenal lebih dekat semangat pengabdian KKN Taru Nawasena.</p>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="container mx-auto px-4 py-16">
+        <div class="max-w-4xl mx-auto">
+            <div class="content-box fade-in">
+                <h2 class="text-2xl font-bold mb-4 text-hijautua">Profil KKN Taru Nawasena</h2>
+                <p class="text-gray-700 leading-relaxed">
+                    KKN Taru Nawasena adalah kelompok mahasiswa Universitas Al Ghifari yang melaksanakan program Kuliah Kerja Nyata (KKN) di Desa Haurwangi, Kecamatan Haurwangi, Kabupaten Cianjur. Program ini merupakan bentuk nyata dari semangat pengabdian kepada masyarakat melalui kolaborasi aktif, inovatif, dan solutif. Dengan semangat dedikasi dan kepedulian, para anggota KKN Taru Nawasena berkomitmen untuk menggali dan mengoptimalkan potensi lokal guna mendorong kemajuan desa yang berkelanjutan serta memberikan dampak positif bagi masyarakat setempat.
+                </p>
+            </div>
+            
+            <div class="content-box fade-in">
+                <h2 class="text-2xl font-bold mb-4 text-hijautua">Lokasi KKN</h2>
+                <p class="text-gray-700 leading-relaxed">
+                    KKN Taru Nawasena melaksanakan program di Desa Haurwangi, Kecamatan Haurwangi, Kabupaten Cianjur, Jawa Barat.
+                </p>
+            </div>
+
+            <div class="content-box fade-in">
+                <h2 class="text-2xl font-bold mb-4 text-hijautua">Fokus Program</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-gray-50 p-6 rounded-lg"><h3 class="font-bold text-hijautua mb-2">Pendidikan</h3><p class="text-gray-600">Program Bimbingan Belajar bertujuan memberikan pendampingan kepada siswa SD dan Paud untuk membantu meningkatkan prestasi akademik mereka. Kegiatan ini dilakukan melalui kegiatan mengajar di sekolah serta mengajar mengaji, sehingga mendukung perkembangan baik dalam pendidikan umum maupun pendidikan agama.</p></div>
+                    <div class="bg-gray-50 p-6 rounded-lg"><h3 class="font-bold text-hijautua mb-2">Lingkungan</h3><p class="text-gray-600">Kegiatan lingkungan dan sosial dilakukan melalui tiga program utama. Pertama, Jumat Bersih (Jumsih) yang merupakan gotong royong rutin setiap hari Jumat untuk menjaga kebersihan dan kesehatan lingkungan desa. Kedua, Pengajian Rutin yang bertujuan memperdalam ilmu agama serta mempererat silaturahmi antarwarga. Ketiga, Penanaman Pohon Jeruk sebagai simbol kenangan kegiatan KKN, bentuk penghijauan, dan upaya pemberdayaan hasil pertanian lokal.</p></div>
+                    <div class="bg-gray-50 p-6 rounded-lg"><h3 class="font-bold text-hijautua mb-2">Kesehatan</h3><p class="text-gray-600">Program kesehatan terdiri dari dua kegiatan utama. Pertama, Pelayanan Posyandu yang mendukung pemeriksaan rutin bagi ibu, anak, dan remaja melalui Posyandu ILP dan Posyandu Remaja. Kedua, Senam Kesehatan yang dilakukan secara rutin untuk menjaga kebugaran dan meningkatkan kesehatan jasmani masyarakat.</p></div>
+                    <div class="bg-gray-50 p-6 rounded-lg"><h3 class="font-bold text-hijautua mb-2">UMKM</h3><p class="text-gray-600">Program pemberdayaan UMKM mencakup beberapa kegiatan penting. Pertama, Pembuatan NIB yang memberikan legalitas usaha agar UMKM bisa berkembang secara profesional. Kedua, Pembuatan Website untuk memperluas promosi dan jangkauan pasar secara digital. Ketiga, Pemanfaatan Media Sosial sebagai sarana promosi kreatif yang mendekatkan UMKM dengan pelanggan dan membangun citra brand yang lebih kuat.</p></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Galeri Section -->
+        <div class="w-full flex flex-col items-center mt-20 fade-in">
+            <h2 class="text-3xl font-bold mb-4 text-hijautua">Galeri Kegiatan</h2>
+            
+            <!-- Kontrol Ukuran Gambar -->
+            <div class="flex space-x-2 mb-4">
+                <button data-size="max-w-lg" class="size-control-btn text-sm px-4 py-1 border rounded-full transition hover:bg-hijautua hover:text-white">Kecil</button>
+                <button data-size="max-w-2xl" class="size-control-btn text-sm px-4 py-1 border rounded-full transition active hover:bg-hijautua hover:text-white">Sedang</button>
+                <button data-size="max-w-4xl" class="size-control-btn text-sm px-4 py-1 border rounded-full transition hover:bg-hijautua hover:text-white">Besar</button>
+            </div>
+
+            <!-- Wadah untuk gambar dan tombol navigasi -->
+            <div id="gallery-container" class="mb-6 w-full max-w-2xl relative group">
+                 <img id="gallery-image" alt="Foto galeri utama" class="w-full h-auto object-cover rounded-lg shadow-xl" onerror="this.onerror=null;this.src='https://placehold.co/800x600/D2691E/ffffff?text=Image+Not+Found';">
+            
+                <!-- Tombol Navigasi Carousel -->
+                <button id="prev-btn" class="absolute top-1/2 left-4 -translate-y-1/2 p-2 bg-black bg-opacity-40 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 focus:outline-none hover:bg-opacity-60">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button id="next-btn" class="absolute top-1/2 right-4 -translate-y-1/2 p-2 bg-black bg-opacity-40 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 focus:outline-none hover:bg-opacity-60">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-hijautua text-white py-8 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="text-xl font-bold mb-4">KKN Taru Nawasena</h4>
+                    <p class="text-krem">Tim KKN Kelompok 3 Universitas Al Ghifari (UNFARI) tahun 2025 dengan nama Taru Nawasena. Bertemakan Optimalisasi Potensi Desa, Kehidupan dan Berkelanjutan.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Kontak</h4>
+                    <p class="text-krem">Email: tarunawasena@gmail.com</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Media Sosial</h4>
+                    <div class="flex flex-col space-y-2">
+                        <a href="https://www.instagram.com/kkn_tarunawasena03?igsh=MTh1MnY3emo0N2hxNQ%3D%3D&utm_source=qr" target="_blank" class="text-krem hover:text-emas">Instagram</a>
+                        <a href="https://www.tiktok.com/@taru.nawasena?_t=ZS-8wrwue9oS6a&_r=1" target="_blank" class="text-krem hover:text-emas">TikTok</a>
+                        <a href="#" target="_blank" class="text-krem hover:text-emas">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-emas mt-8 pt-8 text-center">
+                <p class="text-krem">&copy; 2025 KKN Taru Nawasena. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- LOGIKA MENU MOBILE ---
+            const mobileMenuButton = document.getElementById("mobile-menu-button");
+            const mobileMenu = document.getElementById("mobile-menu");
+            if(mobileMenuButton && mobileMenu){
+                mobileMenuButton.addEventListener("click", () => {
+                    mobileMenu.classList.toggle("hidden");
+                });
+            }
+
+            // --- LOGIKA EFEK FADE-IN SAAT SCROLL ---
+            const fadeInElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            fadeInElements.forEach((element, index) => {
+                setTimeout(() => observer.observe(element), index * 150);
+            });
+
+            // --- LOGIKA CAROUSEL GALERI ---
+            const images = [
+                'assets/bersama1.jpg', 
+                'assets/bersama2.jpg', 
+                'assets/bersama3.jpg',
+                'assets/bersama4.jpg',
+                'assets/bersama5.jpg', 
+                'assets/bersama6.jpg', 
+                'assets/bersama7.jpg',
+                'assets/bersama8.jpg',
+                'assets/bersama9.jpg',
+                'assets/bersama10.jpg',
+                'assets/bersama11.jpg',
+                'assets/bersama12.jpg',
+                'assets/bersama13.jpg'
+            ];
+            let currentIndex = 0;
+
+            const galleryElements = {
+                image: document.getElementById('gallery-image'),
+                prevBtn: document.getElementById('prev-btn'),
+                nextBtn: document.getElementById('next-btn'),
+            };
+
+            function updateGallery(isInitial = false) {
+                if (!galleryElements.image) return;
+                // Transisi fade out
+                galleryElements.image.style.opacity = '0';
+                
+                setTimeout(() => {
+                    // Ganti sumber gambar setelah transisi fade out selesai
+                    galleryElements.image.src = images[currentIndex];
+                    // Transisi fade in
+                    galleryElements.image.style.opacity = '1';
+                }, 200); // Waktu harus setengah dari durasi transisi CSS (0.4s)
+            }
+
+            if (galleryElements.prevBtn && galleryElements.nextBtn) {
+                galleryElements.prevBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + images.length) % images.length;
+                    updateGallery();
+                });
+                galleryElements.nextBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    updateGallery();
+                });
+            }
+            
+            // Inisialisasi Galeri
+            if (galleryElements.image) {
+                galleryElements.image.src = images[currentIndex];
+            }
+
+
+            // --- LOGIKA KONTROL UKURAN GALERI ---
+            const sizeControlButtons = document.querySelectorAll('.size-control-btn');
+            const galleryContainer = document.getElementById('gallery-container');
+            const sizeClasses = ['max-w-lg', 'max-w-2xl', 'max-w-4xl'];
+
+            if (sizeControlButtons.length > 0 && galleryContainer) {
+                sizeControlButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        // Hapus kelas aktif dari semua tombol
+                        sizeControlButtons.forEach(btn => btn.classList.remove('active'));
+                        
+                        // Tambah kelas aktif ke tombol yang diklik
+                        button.classList.add('active');
+
+                        const newSizeClass = button.dataset.size;
+                        
+                        // Hapus semua kelas ukuran yang mungkin ada sebelumnya
+                        galleryContainer.classList.remove(...sizeClasses);
+
+                        // Tambahkan kelas ukuran yang baru
+                        if (newSizeClass) {
+                            galleryContainer.classList.add(newSizeClass);
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

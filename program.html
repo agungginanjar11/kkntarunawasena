@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Program Kerja - KKN Taru Nawasena</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        hijautua: "#D2691E", // Warna Cokelat
+                        krem: "#f3e9d2",     // Warna Krem
+                        birulogo: "#2a5c6a",
+                        emas: "#bfa14a",     // Warna Emas
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        /* Animasi elemen muncul saat di-scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, transform;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Navbar -->
+    <nav class="sticky top-0 bg-hijautua text-white shadow-lg z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <img src="assets/logo1.jpg" alt="Logo KKN Taru Nawasena" class="h-10 w-10 rounded-full border-2 border-emas bg-krem" />
+                    <a href="index.html" class="text-xl font-bold text-white">Taru Nawasena</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="hover:text-emas transition duration-300">Beranda</a>
+                    <a href="tentang.html" class="hover:text-emas transition duration-300">Tentang Kami</a>
+                    <a href="program.html" class="text-emas font-semibold transition duration-300">Program Kerja</a>
+                    <a href="dokumentasi.html" class="hover:text-emas transition duration-300">Dokumentasi</a>
+                    <a href="tim.html" class="hover:text-emas transition duration-300">Tim</a>
+                    <a href="kontak.html" class="hover:text-emas transition duration-300">Kontak</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white hover:text-emas focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Menu Mobile -->
+            <div id="mobile-menu" class="md:hidden hidden flex-col space-y-2 mt-2 bg-hijautua rounded-lg shadow-lg p-4">
+                <a href="index.html" class="block py-2 px-4 text-sm hover:text-emas transition duration-300">Beranda</a>
+                <a href="tentang.html" class="block py-2 px-4 text-sm hover:text-emas transition duration-300">Tentang Kami</a>
+                <a href="program.html" class="block py-2 px-4 text-sm text-emas font-semibold">Program Kerja</a>
+                <a href="dokumentasi.html" class="block py-2 px-4 text-sm hover:text-emas transition duration-300">Dokumentasi</a>
+                <a href="tim.html" class="block py-2 px-4 text-sm hover:text-emas transition duration-300">Tim</a>
+                <a href="kontak.html" class="block py-2 px-4 text-sm hover:text-emas transition duration-300">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="bg-hijautua text-white py-16">
+        <div class="container mx-auto px-4 text-center fade-in">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Program Kerja</h1>
+            <p class="text-xl max-w-3xl mx-auto text-krem">
+                Inisiatif dan kegiatan yang kami laksanakan untuk memberikan dampak positif bagi masyarakat Desa Haurwangi.
+            </p>
+        </div>
+    </header>
+
+    <!-- Program Section -->
+    <main class="container mx-auto px-4 py-16">
+        <!-- Program Pendidikan & Kesehatan -->
+        <section class="bg-white rounded-2xl shadow-lg p-8 md:p-12 mb-12 fade-in">
+            <div class="flex items-center mb-6">
+                <div class="text-5xl mr-4">📚</div>
+                <h2 class="text-3xl font-bold text-gray-800">Pendidikan & Kesehatan</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <h3 class="font-bold text-lg mb-2 text-hijautua">Bimbingan Belajar</h3>
+                    <p class="text-gray-600 mb-4">Memberikan pendampingan belajar bagi siswa SD dan paud untuk meningkatkan prestasi akademik.</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        <li>Mengajar di Sekolah</li>
+                        <li>Mengajar Mengaji</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <h3 class="font-bold text-lg mb-2 text-hijautua">Pelayanan Posyandu</h3>
+                    <p class="text-gray-600 mb-4">Mendukung kegiatan posyandu untuk kesehatan ibu, anak, dan remaja.</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        <li>Pemeriksaan Rutin</li>
+                        <li>Posyandu ILP (Integrasi Layanan Primer)</li>
+                        <li>Posyandu Remaja</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <h3 class="font-bold text-lg mb-2 text-hijautua">Senam Kesehatan</h3>
+                    <p class="text-gray-600 mb-4">Mengadakan senam rutin mingguan untuk menjaga kebugaran dan kesehatan jasmani masyarakat.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Program Lingkungan & Sosial -->
+        <section class="bg-white rounded-2xl shadow-lg p-8 md:p-12 mb-12 fade-in">
+            <div class="flex items-center mb-6">
+                <div class="text-5xl mr-4">🌱</div>
+                <h2 class="text-3xl font-bold text-gray-800">Lingkungan & Sosial</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <h3 class="font-bold text-lg mb-2 text-hijautua">Jumat Bersih (Jumsih)</h3>
+                    <p class="text-gray-600">Gotong royong membersihkan lingkungan desa setiap hari Jumat untuk menciptakan lingkungan yang bersih dan sehat.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <h3 class="font-bold text-lg mb-2 text-hijautua">Pengajian Rutin</h3>
+                    <p class="text-gray-600">Mengadakan pengajian rutin untuk memperdalam ilmu agama dan mempererat tali silaturahmi antarwarga.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <h3 class="font-bold text-lg mb-2 text-hijautua">Penanaman Pohon Jeruk</h3>
+                    <p class="text-gray-600">Menanam pohon jeruk sebagai simbol kenangan, upaya penghijauan, dan pemberdayaan hasil pertanian lokal.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Program Ekonomi & UMKM -->
+        <section class="bg-white rounded-2xl shadow-lg p-8 md:p-12 fade-in">
+            <div class="flex items-center mb-6">
+                <div class="text-5xl mr-4">💰</div>
+                <h2 class="text-3xl font-bold text-gray-800">Ekonomi & UMKM</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <h3 class="font-bold text-lg mb-2 text-hijautua">Nomor Induk Berusaha (NIB)</h3>
+                    <p class="text-gray-600 mb-4">Nomor Induk Berusaha (NIB) adalah identitas legal bagi pelaku usaha yang dikeluarkan oleh pemerintah. Dengan memiliki NIB, pelaku UMKM mendapatkan legalitas usaha, kemudahan dalam mengakses bantuan, perizinan, dan peluang kerja sama. Pembuatan NIB menjadi langkah awal yang penting agar UMKM bisa berkembang dengan lebih profesional.</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                    </ul>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <h3 class="font-bold text-lg mb-2 text-hijautua">Pembuatan Website</h3>
+                    <p class="text-gray-600 mb-4">Pembuatan website menjadi sarana penting bagi UMKM untuk memperkenalkan produk secara luas. Website memungkinkan pelanggan mengakses informasi produk kapan saja, sekaligus meningkatkan kepercayaan terhadap usaha. Selain itu, kehadiran digital lewat website dapat memperluas jangkauan pasar hingga ke luar daerah bahkan mancanegara.
+</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                    </ul>
+                </div>
+                  <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <h3 class="font-bold text-lg mb-2 text-hijautua">Akun Media Sosial </h3>
+                    <p class="text-gray-600 mb-4">Pemanfaatan media sosial sangat membantu UMKM dalam promosi dan interaksi langsung dengan pelanggan. Dengan membuat akun media sosial, pelaku UMKM dapat memperkenalkan produk secara kreatif, menjangkau lebih banyak audiens, dan membangun citra brand yang lebih kuat. Aktivitas digital ini mendukung peningkatan penjualan dan keberlanjutan usaha.</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                    </ul>
+                </div>
+            </div>
+            
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-hijautua text-white py-8 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="text-xl font-bold mb-4">KKN Taru Nawasena</h4>
+                    <p class="text-krem">Tim KKN Kelompok 3 Universitas Al Ghifari (UNFARI) tahun 2025 dengan nama Taru Nawasena. Bertemakan Optimalisasi Potensi Desa, Kehidupan dan Berkelanjutan.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Kontak</h4>
+                    <p class="text-krem">Email: tarunawasena@gmail.com</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Media Sosial</h4>
+                    <div class="flex flex-col space-y-2">
+                        <a href="https://www.instagram.com/kkn_tarunawasena03?igsh=MTh1MnY3emo0N2hxNQ%3D%3D&utm_source=qr" target="_blank" class="text-krem hover:text-emas transition duration-300">Instagram</a>
+                        <a href="https://www.tiktok.com/@taru.nawasena?_t=ZS-8wrwue9oS6a&_r=1" target="_blank" class="text-krem hover:text-emas transition duration-300">TikTok</a>
+                        <a href="#" target="_blank" class="text-krem hover:text-emas transition duration-300">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-emas mt-8 pt-8 text-center">
+                <p class="text-krem">&copy; 2025 KKN Taru Nawasena. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // --- Skrip untuk Menu Mobile ---
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        mobileMenuButton.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+
+        // --- Skrip untuk Efek Muncul saat Scroll ---
+        document.addEventListener("DOMContentLoaded", () => {
+            const fadeInElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            fadeInElements.forEach((element, index) => {
+                setTimeout(() => observer.observe(element), index * 150);
+            });
+        });
+    </script>
+</body>
+</html>
